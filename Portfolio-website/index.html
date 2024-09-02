@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Web Wonders Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+
+        :root {
+            --primary-color: #f9532d;
+            --primary-dark: #1F252E;
+            --accent-color: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(to right, #1F252E, #4CAF50);
+            color: #ffffff;
+        }
+
+        .container {
+            padding: 0 8.4rem;
+        }
+
+        .img-w {
+            width: 100%;
+            height: auto;
+        }
+
+        header {
+            background: var(--primary-dark);
+            position: relative;
+            box-shadow: 0 4px 17px rgb(255 255 255 / 10%);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            opacity: 0;
+            animation: leftSideAni 1s ease forwards;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        ul {
+            display: flex;
+            gap: .6rem;
+            list-style-type: none;
+            background-color: transparent;
+            overflow: hidden;
+        }
+
+        li a {
+            display: inline-block;
+            padding: .3rem 1rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: .7px;
+            border-radius: 36px;
+            line-height: 2;
+            transition: .3s;
+            opacity: 0;
+            animation: navani .3s ease forwards;
+            animation-delay: calc(.15s * var(--navAni));
+        }
+
+        li a.active,
+        li a:hover {
+            color: var(--primary-color);
+        }
+
+        #click {
+            display: none;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .mode i {
+            font-size: 1.4rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            opacity: 0;
+            animation: rightSideAni 1.5s ease forwards;
+        }
+
+        .main {
+            padding: 6rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(277px, 1fr));
+            row-gap: 2rem;
+            column-gap: 6rem;
+            align-items: center;
+        }
+
+        .main h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            opacity: 0;
+            animation: topSideAni 1s ease forwards;
+        }
+
+        .main h1 {
+            color: #fff;
+            font-size: 4rem;
+            font-weight: 600;
+            opacity: 0;
+            animation: leftSideAni 1s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .main button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.8rem 1rem;
+            font-size: 1.1rem;
+            border-radius: 7px;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        .images {
+            margin-left: auto;
+            width: 300px;
+        }
+
+        .images img {
+            border-radius: 50%;
+            box-shadow: 0 0 10px #D1D9E6;
+        }
+
+        .main {
+            position: relative;
+        }
+
+        .big-circle {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            border: 3px solid #bbbbbb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: Rotate 20s linear infinite;
+        }
+
+        .icon-block {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .icon-block img {
+            margin: 0px auto;
+            width: 60%;
+            animation: Rotate-reverse 20s linear infinite;
+        }
+
+        .icon-block:first-child {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .icon-block:nth-child(2) {
+            top: 50%;
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+
+        .icon-block:nth-child(3) {
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        .icon-block:nth-child(4) {
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        .rounding-sec {
+            position: relative;
+            height: 400px;
+            width: 400px;
+        }
+
+        .images {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes Rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes Rotate-reverse {
+            from {
+                transform: rotate(360deg);
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes leftSideAni {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes navani {
+            0% {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes topSideAni {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            .container {
+                padding: 0 4.4rem;
+            }
+
+            .main h3 {
+                color: #ac2020;
+                margin-top: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 990px) {
+            .main {
+                grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            }
+
+            .rounding-sec {
+                margin: auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .menu {
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .main h1 {
+                font-size: 2.2rem;
+            }
+
+            .main h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Style for Super Website section */
+        #projects {
+            background: var(--primary-dark);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        #projects h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #projects p {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        #projects img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        #projects.a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* New Animation Styles */
+        .animated-text {
+            position: relative;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .animated-text h2 {
+            font-size: 8em;
+            color: transparent;
+            -webkit-text-stroke: 2px #03a9f4;
+        }
+
+        .animated-text h2 span {
+            color: #03a9f4;
+            animation: animate 4s ease-in-out infinite;
+        }
+
+        @keyframes animate {
+
+            0%,
+            100% {
+                clip-path: polygon(0% 45%,
+                        16% 44%,
+                        33% 50%,
+                        54% 60%,
+                        70% 61%,
+                        84% 59%,
+                        100% 52%,
+                        100% 100%,
+                        0% 100%);
+            }
+
+            50% {
+                clip-path: polygon(0% 60%,
+                        15% 65%,
+                        34% 66%,
+                        51% 62%,
+                        67% 50%,
+                        84% 45%,
+                        100% 46%,
+                        100% 100%,
+                        0% 100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <header>
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">My Portfolio</a>
+            </div>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#projects">About</a></li>
+                <li><a href="#pro">Projects</a></li>
+                <li><a href="#projects">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mode">
+                <i class='bx bx-moon'></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mode">
+        <i class='bx bx-moon'></i>
+    </div>
+    </div>
+    </header>
+
+    <!-- Main Content Sections -->
+    <main>
+        <section id="home" class="main">
+            <h3>"Innovative Web Developer"</h3>
+            <h1>"The Art of My Portfolio"</h1>
+            <!-- Roundin sec -->
+            <div class="rounding-sec">
+                <div class="big-circle">
+                    <a href="https://facebook.com" target="_blank" class="icon-block" id="facebook">
+                        <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook">
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="icon-block" id="instagram">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="icon-block" id="linkedin">
+                        <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com" target="_blank" class="icon-block" id="github">
+                        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+                    </a>
+                </div>
+                <div class="images">
+                    <img width="320px" height="330px" src="WhatsApp Image 2024-07-11 at 13.30.08_10e5b5ba.jpg"
+                        alt="Profile Picture">
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2><strong></strong>About Me</strong></h2>
+            <p><em>"Hi, I’m Ashish Jairamm, a frontend developer who thrives on creativity and innovation.
+                    With a deep understanding of HTML, CSS, and JavaScript,
+                    I’m committed to creating visually appealing websites that push the boundaries of web design</em>
+            </p>
+            <p>In addition to web design, learned in additional course</p>
+        </section><br>
+
+
+
+
+
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2><strong> Super Cool Website</strong></h2>
+            <p><em><strong> projects : Check out my latest project where I've implemented some amazing features using
+                        modern web technologies.</em></strong></p>
+            <a href="https://github.com/Ashishjairamm/html-css-javascript-projects" target="_blank">View on GitHub</a>
+        </section><br>
+
+
+
+
+
+
+
+
+        <div id="projects">
+            <h2>Resume</h2>
+            <p>Download my resume to learn more about my professional experience and skills.</p>
+            <a href="https://drive.google.com/file/d/1xpLHw16X8maB93kGWgzXBQewygveBhkr/view?usp=sharing" target="_blank"
+                class="resume-download">Download Resume</a>
+
+        </div>
+
+
+        <!-- Contact Section -->
+        <section id="contact">
+
+
+            <div id="projects">
+                <h2>Contact Me</h2>
+                <p>If you would like to get in touch, feel free to email me or give me a call. I'm always open to
+                    discussing
+                    new projects or opportunities!</p>
+                <p><i class='bx bx-envelope'></i> <a href="mailto:your.2019akc@gmail.com">2019akc@gmail.com</a></p>
+                <p><i class='bx bx-phone'></i> <a href="tel:+1234567890">9962140159</a></p>
+            </div>
+            <div id="pro">
+                <h2>Our Projects</h2>
+                <p>Explore our latest and greatest projects that showcase our innovative designs and cutting-edge
+                    technology.</p>
+                <a href="https://github.com/">See More </a>
+            </div>
+
+            <br>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2><strong>Startup Project Achievements</strong></h2>
+                <p><em><strong>Introducing the latest startup project: suv Startup - A revolutionary platform that
+                            utilizes cutting-edge web technologies to deliver exceptional user experiences. Check out
+                            how we've integrated advanced features and modern solutions.</strong></em></p>
+                <a href="https://suvstartupspace.com/" target="_blank">View on website</a>
+                <div class="project">
+                    <!-- Add more details or elements here if needed -->
+                </div>
+            </section>
+
+
+            <section id="projects">
+                <h2><strong>Our Latest achievements:</strong></h2><br>
+
+            <p><em>Travelling Towards The Future of Job Placements,If you want to work together or have any questions,
+                    feel free to reach out!: <a href="https://suvinternational.com/" target="_blank">Suv
+                        International</a>. This website showcases innovative job application</em></p>
+            <a href="https://suvinternational.com/" target="_blank">Visit the Website</a>
+            </section><br>
+    
+
+
+            
+            </div>
+        </section>
+
+        <script src="script.js"></script>
+</body>
+
+
+
+</section>
+</body>
+
+</html>
+
+</section>
+</main>
+
+<script src="script.js"></script>
+
+
+</script>
+
+</body>
+
+</html>

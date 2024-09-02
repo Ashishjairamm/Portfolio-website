@@ -40,3 +40,18 @@ Check out the live version of my portfolio: [Link to Your Portfolio](http://127.
 ├── images
 │   └── # Images for the portfolio
 └── README.md
+
+🎯 Sections
+Home: Introduction and welcome message.
+About: Overview of my skills, background, and passions.
+Projects: A showcase of my latest web development projects.
+Resume: Link to my professional resume.
+Contact: Get in touch with me through social media or email.
+.
+
+🤝 Contributing
+Feel free to fork this repository and contribute improvements or new features. All contributions are welcome!
+
+📫 Contact
+You can reach me at: your.email@example.com
+

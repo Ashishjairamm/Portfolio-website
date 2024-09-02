@@ -52,6 +52,4 @@ Contact: Get in touch with me through social media or email.
 🤝 Contributing
 Feel free to fork this repository and contribute improvements or new features. All contributions are welcome!
 
-📫 Contact
-You can reach me at: your.email@example.com
-
+ 📫 How to reach me: 2019akc@gmail.com.

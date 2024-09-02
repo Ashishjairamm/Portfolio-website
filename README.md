@@ -6,7 +6,7 @@ Welcome to my personal portfolio website repository! This is where I showcase my
 
 ## 🚀 Live Demo
 
-Check out the live version of my portfolio: [Link to Your Portfolio](http://127.0.0.1:5500/html-css-javascript-projects-main/Portfolio-website/index.html)
+Check out the live version of my portfolio: [Link to my Portfolio](http://127.0.0.1:5500/html-css-javascript-projects-main/Portfolio-website/index.html)
 
 ## 🌟 Features
 
